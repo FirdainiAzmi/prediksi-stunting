@@ -59,7 +59,7 @@ def predict(summaries, row):
     return best_label
 
 def load_data():
-    file_path = 'Stunting.csv' 
+    file_path = 'Stunting.csv'
     data = pd.read_csv(file_path)
 
     data['Birth Weight'] = pd.to_numeric(data['Birth Weight'], errors='coerce')
@@ -104,8 +104,8 @@ def set_background(image_path):
     """
     st.markdown(bg_style, unsafe_allow_html=True)
 
-background_home = "depan ai.png" 
-background_prediction = "utama ai.png" 
+background_home = "depan ai.png"
+background_prediction = "utama ai.png"
 
 if st.session_state["page"] == "home":
     set_background(background_home)
@@ -133,4 +133,4 @@ elif st.session_state["page"] == "prediction":
     if st.button("Predict Stunting"):
         predicted_label = predict(model, new_data)
         label_mapping = {0: 'No', 1: 'Yes'}
-        st.write(f"Predicted Stunting: {label_mapping[predicted_label]}")
+        st.write(f"Predicted Stunting: {label_mapping[predicted_label]}, lakukan pemeriksaan lebih lanjut ke pusat kesehatan")
